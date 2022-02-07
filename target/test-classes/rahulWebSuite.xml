@@ -1,0 +1,33 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AutomationTestSuite" verbose="1">
+    <test name="Tesst01">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="url" value="https://rahulshettyacademy.com/AutomationPractice/"/>
+        <parameter name="suggessionClassExampleText" value="EL SAL"></parameter>
+        <parameter name="dropdownSelect" value="Option2"></parameter>
+        <classes>
+            <class name="testproject.rahulshettyacademyWeb">
+                <methods>
+                    <include name="SelectRandomRadioLocatorTest"/>
+                    <include name="PrintSugessionClassExampleTest"/>
+                    <include name="SelectDropdownTest"/>
+                    <include name="ClickHeaderButtonsUrlsTest"/>
+                    <include name="SwitchTabsTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Test02">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="url" value="https://rahulshettyacademy.com/AutomationPractice/"/>
+        <parameter name="suggessionClassExampleText" value="EL SAL"></parameter>
+        <parameter name="dropdownSelect" value="Option2"></parameter>
+        <classes>
+            <class name="testproject.rahulshettyacademyWeb">
+                <methods>
+                    <include name="PrintSugessionClassExampleTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
