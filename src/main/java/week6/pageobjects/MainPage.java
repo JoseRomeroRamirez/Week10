@@ -21,5 +21,10 @@ public class MainPage extends BasePageObject{
             System.out.println(j+"    "+getText(cartCounterLocator));
             AssertEqual(String.valueOf(j),getText(cartCounterLocator),"El Contador de agregar al carrito fallo");
         }
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
