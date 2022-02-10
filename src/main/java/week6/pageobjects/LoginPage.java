@@ -15,12 +15,15 @@ public class LoginPage extends BasePageObject{
     By UsernameTextBoxLocator = By.xpath("//input[@id='user-name']");
     By PasswordTextBoxLocator = By.xpath("//input[@id='password']");
     By LoginButtonLocator = By.xpath("//input[@id='login-button']");
-    By h = By.xpath("//input[@id='password']");
+    By ErrorBox = By.tagName("h3");
     //Este metodo permite ingresar al sitio brindando usuario y contraseña
     public void Login(String user, String pass){
         type(user,UsernameTextBoxLocator);
         type(pass, PasswordTextBoxLocator);
         click(LoginButtonLocator);
+    }
+    public String GetErrorBoxText(){
+        return getText(ErrorBox);
     }
 
 }

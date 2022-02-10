@@ -22,6 +22,8 @@ public class BasePageObject {
         this.driver = driver;
         this.log =log;
     }
+    //Get text given locator
+    public String getText(By locator){ return find(locator).getText();}
     //Count actual tabs
     public int CountTabs(){
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
