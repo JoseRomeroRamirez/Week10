@@ -18,7 +18,7 @@ public class MainPage extends BasePageObject{
         List<WebElement> addButton = findElements(addToCartButtonLocator);
         for (int j = 0; j < addButton.size(); j++) {
             addButton.get(j).click();
-            AssertEqual(j,getText(cartCounterLocator),"El Contador de agregar al carrito fallo");
+            AssertEqual(String.valueOf(j),getText(cartCounterLocator),"El Contador de agregar al carrito fallo");
         }
     }
 }
