@@ -14,8 +14,8 @@ public class SwagLabsTest  extends TestUtilities {
                 {"locked_out_user", "secret_sauce"},
                 {"problem_user", "secret_sauce"},
                 {"performance_glitch_user","secret_sauce"},
-                {"BadUser","secret_sauce"},
-                {"standard_user","BadPass"}
+                {"WrongUser","secret_sauce"},
+                {"standard_user","WrongPass"}
         };
     }
     @Test(dataProvider = "user-data")
