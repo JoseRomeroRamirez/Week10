@@ -77,17 +77,13 @@ public class BasePageObject {
         return driver.findElements(locator);
     }
     //Click on element with given locator when is visible
-    public void click(WebDriver driver, Logger log, By locator){
-        TestUtilities util = new TestUtilities();
+    public void click(By locator){
         wait(locator, 5);
-        util.scrollWebElement(driver, log, find(locator));
         find(locator).click();
     }
     //Click on element with given Element when is visible
-    public void click(WebDriver driver, Logger log, WebElement Element){
-        TestUtilities util = new TestUtilities();
+    public void click(WebElement Element){
         wait(Element, 5);
-        util.scrollWebElement(driver, log, Element);
         Element.click();
     }
     //Wait for presence of the WebElement
@@ -109,5 +105,10 @@ public class BasePageObject {
     //Get alert text
     public String GetAlertText(WebDriver driver){
         return driver.switchTo().alert().getText();
+    }
+    //Type given test into element with given locator
+    public void type(String text , By locator){
+        wait(locator, 5);
+        find(locator).sendKeys(text);
     }
 }
