@@ -6,6 +6,9 @@
         <parameter name="pass" value="secret_sauce"/>
         <classes>
             <class name="testproject.SwagLabsTest">
+                <methods>
+                    <include name = "RemoveItemsFromCart"/>
+                </methods>
             </class>
         </classes>
     </test>
