@@ -16,10 +16,10 @@ public class MainPage extends BasePageObject{
 
     public void addAllItemsToCart(){
         List<WebElement> addButton = findElements(addToCartButtonLocator);
-        for (int j = 0; j < addButton.size(); j++) {
+        for (int j=0; j < addButton.size(); j++) {
             addButton.get(j).click();
-            System.out.println(j+"    "+getText(cartCounterLocator));
-            AssertEqual(String.valueOf(j),getText(cartCounterLocator),"El Contador de agregar al carrito fallo");
+            System.out.println((j+1)+"    "+getText(cartCounterLocator));
+            AssertEqual(String.valueOf(j+1),getText(cartCounterLocator),"El Contador de agregar al carrito fallo");
         }
         try {
             Thread.sleep(10000);
