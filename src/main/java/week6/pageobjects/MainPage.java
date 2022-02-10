@@ -16,8 +16,9 @@ public class MainPage extends BasePageObject{
 
     public void addAllItemsToCart(){
         List<WebElement> addButton = findElements(addToCartButtonLocator);
-        for (WebElement b:addButton) {
-            b.click();
+        for (int j = 0; j < addButton.size(); j++) {
+            addButton.get(j).click();
+            System.out.println(getText(cartCounterLocator));
         }
     }
 }

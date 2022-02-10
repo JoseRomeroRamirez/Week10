@@ -49,10 +49,6 @@ public class SwagLabsTest  extends TestUtilities {
         AddAllItemsToCart AddAllItemsToCart = new AddAllItemsToCart(driver, log);
         Login.execute(user, pass);
         AddAllItemsToCart.execute();
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
     }
 }
