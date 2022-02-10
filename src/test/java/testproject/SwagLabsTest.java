@@ -3,6 +3,7 @@ package testproject;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import week6.actions.AddAllItemsToCart;
 import week6.actions.GetErrorText;
 import week6.actions.Login;
 import week6.base.TestUtilities;
@@ -41,5 +42,15 @@ public class SwagLabsTest  extends TestUtilities {
         Login.execute(user, pass);
         Login.AssertEqual(Login.GetUrl(driver), "https://www.saucedemo.com/", "No coincide la URL del login");
         Login.AssertEqual(GetErrorText.execute(),mensaje, "Mensaje de error Erroneo");
+    }
+    @Test(dataProvider = "user-data-success")
+    public void RemoveItemsFromCart(String user, String pass){
+        AddAllItemsToCart AddAllItemsToCart = new AddAllItemsToCart(driver, log);
+        AddAllItemsToCart.execute();
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
