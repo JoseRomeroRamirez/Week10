@@ -19,7 +19,7 @@ public class SwagLabsTest  extends TestUtilities {
     @DataProvider(name="user-data-fail")
     Object[][] userDataFail(){
         return new Object[][] {
-                {"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out.\n"},
+                {"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."},
                 {"WrongUser","secret_sauce", "Epic sadface: Username and password do not match any user in this service"},
                 {"standard_user","WrongPass", "Epic sadface: Username and password do not match any user in this service"},
                 {"","secret_sauce", "Epic sadface: Username is required"},
