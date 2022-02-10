@@ -21,7 +21,7 @@ public class SwagLabsTest  extends TestUtilities {
     @Test(dataProvider = "user-data")
     public void LoginTest(String user, String pass){
         Login Login = new Login(driver, log);
-        log.info("Login in to the E-commerce");
+        log.info("Login in to the E-commerce with: " +user+" password: "+ pass);
         Login.execute(user, pass);
         Login.AssertEqual(Login.GetUrl(driver), "https://www.saucedemo.com/inventory.html", "No coincide la URL de la pagina principal");
     }
