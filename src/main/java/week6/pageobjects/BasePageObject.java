@@ -27,8 +27,8 @@ public class BasePageObject {
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         return tabs.size();
     }
-    //Assert equal given two int
-    public void AssertEqual(int actual, int expected, String Message){
+    //Assert equal given two strings
+    public void AssertEqual(String actual, String expected, String Message){
         Assert.assertEquals(actual, expected, Message);
     }
     //Assert true given boolean
@@ -110,5 +110,9 @@ public class BasePageObject {
     public void type(String text , By locator){
         wait(locator, 5);
         find(locator).sendKeys(text);
+    }
+    //Get the current url
+    public String GetUrl(WebDriver driver){
+        return driver.getCurrentUrl();
     }
 }
