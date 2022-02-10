@@ -12,5 +12,6 @@ public class SwagLabsTest  extends TestUtilities {
         Login Login = new Login(driver, log);
         log.info("Login in to the E-commerce");
         Login.execute(user, pass);
+        log.info("jajajajaj "+driver.getCurrentUrl());
     }
 }
