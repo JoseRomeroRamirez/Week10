@@ -45,7 +45,9 @@ public class SwagLabsTest  extends TestUtilities {
     }
     @Test(dataProvider = "user-data-success")
     public void RemoveItemsFromCart(String user, String pass){
+        Login Login = new Login(driver, log);
         AddAllItemsToCart AddAllItemsToCart = new AddAllItemsToCart(driver, log);
+        Login.execute(user, pass);
         AddAllItemsToCart.execute();
         try {
             Thread.sleep(10000);
