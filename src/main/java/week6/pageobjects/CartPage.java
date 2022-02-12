@@ -20,11 +20,6 @@ public class CartPage extends BasePageObject{
             removeButton.get(j).click();
             AssertEqual(String.valueOf(j+1),getText(cartCounterLocator),"El Contador de remover al carrito fallo");
             log.info("Item removed");
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 }
