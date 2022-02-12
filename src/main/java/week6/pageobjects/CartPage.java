@@ -17,6 +17,7 @@ public class CartPage extends BasePageObject{
         openUrl("https://www.saucedemo.com/cart.html");
         List<WebElement> removeButton = findElements(removeButtonLocator);
         for (int j=removeButton.size(); j < 0 ; j--) {
+            System.out.println(j + "   " + removeButton.size());
             removeButton.get(j).click();
             AssertEqual(String.valueOf(j+1),getText(cartCounterLocator),"El Contador de remover al carrito fallo");
             log.info("Item removed");
