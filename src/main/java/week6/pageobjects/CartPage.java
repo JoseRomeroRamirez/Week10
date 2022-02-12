@@ -11,7 +11,7 @@ public class CartPage extends BasePageObject{
     public CartPage(WebDriver driver, Logger log) {
         super(driver, log);
     }
-    By removeButtonLocator = By.xpath("//button[contains(@class, 'btn') and contains(@class, 'btn_primary')]");
+    By removeButtonLocator = By.xpath("//button[contains(@class, 'btn') and contains(@class, 'btn_secondary') and contains(@class, 'cart_button')]");
     By cartCounterLocator = By.xpath("//span[contains(@class, 'shopping_cart_badge')]");
     public void removeItemsToCart(){
         openUrl("https://www.saucedemo.com/cart.html");
