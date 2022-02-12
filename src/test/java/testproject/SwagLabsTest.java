@@ -1,9 +1,8 @@
 package testproject;
 
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import week6.actions.AddAllItemsToCart;
+import week6.actions.AddItemsToCart;
 import week6.actions.GetErrorText;
 import week6.actions.Login;
 import week6.base.TestUtilities;
@@ -46,9 +45,9 @@ public class SwagLabsTest  extends TestUtilities {
     @Test(dataProvider = "user-data-success")
     public void RemoveItemsFromCart(String user, String pass){
         Login Login = new Login(driver, log);
-        AddAllItemsToCart AddAllItemsToCart = new AddAllItemsToCart(driver, log);
+        AddItemsToCart AddItemsToCart = new AddItemsToCart(driver, log);
         Login.execute(user, pass);
-        AddAllItemsToCart.execute();
+        AddItemsToCart.execute();
 
     }
 }

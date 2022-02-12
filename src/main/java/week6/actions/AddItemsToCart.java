@@ -6,12 +6,12 @@ import week6.pageobjects.BasePageObject;
 import week6.pageobjects.LoginPage;
 import week6.pageobjects.MainPage;
 
-public class AddAllItemsToCart extends BasePageObject {
-    public AddAllItemsToCart(WebDriver driver, Logger log) {
+public class AddItemsToCart extends BasePageObject {
+    public AddItemsToCart(WebDriver driver, Logger log) {
         super(driver, log);
     }
     public void execute(){
         MainPage MainPage = new MainPage(driver, log);
-        MainPage.addAllItemsToCart();
+        MainPage.addItemsToCart();
     }
 }

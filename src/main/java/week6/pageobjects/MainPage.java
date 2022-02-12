@@ -13,10 +13,12 @@ public class MainPage extends BasePageObject{
     }
     By addToCartButtonLocator = By.xpath("//button[contains(@class, 'btn') and contains(@class, 'btn_primary')]");
     By cartCounterLocator = By.xpath("//span[contains(@class, 'shopping_cart_badge')]");
+    int productosMax =10;
+    public void addItemsToCart(){
 
-    public void addAllItemsToCart(){
         List<WebElement> addButton = findElements(addToCartButtonLocator);
-        for (int j=0; j < addButton.size(); j++) {
+        if (productosMax > addButton.size()){productosMax = addButton.size();}
+        for (int j=0; j < productosMax; j++) {
             addButton.get(j).click();
             AssertEqual(String.valueOf(j+1),getText(cartCounterLocator),"El Contador de agregar al carrito fallo");
         }
