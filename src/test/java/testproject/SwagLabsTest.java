@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import week6.actions.AddItemsToCart;
 import week6.actions.GetErrorText;
 import week6.actions.Login;
+import week6.actions.RemoveItemsFromCart;
 import week6.base.TestUtilities;
 
 public class SwagLabsTest  extends TestUtilities {
@@ -46,8 +47,9 @@ public class SwagLabsTest  extends TestUtilities {
     public void RemoveItemsFromCart(String user, String pass){
         Login Login = new Login(driver, log);
         AddItemsToCart AddItemsToCart = new AddItemsToCart(driver, log);
+        RemoveItemsFromCart RemoveItemsFromCart = new RemoveItemsFromCart(driver, log);
         Login.execute(user, pass);
         AddItemsToCart.execute();
-
+        RemoveItemsFromCart.execute();
     }
 }
