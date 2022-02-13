@@ -9,7 +9,7 @@ public class SumAllPrices extends BasePageObject {
     public SumAllPrices(WebDriver driver, Logger log) {
         super(driver, log);
     }
-    public int execute(){
+    public double execute(){
         CartPage CartPage = new CartPage(driver, log);
         return CartPage.sumAllPrices();
     }

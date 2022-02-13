@@ -26,16 +26,15 @@ public class CartPage extends BasePageObject{
             log.info("Item removed");
         }
     }
-    public int sumAllPrices(){
-        int sum = 0;
+    public double sumAllPrices(){
+        double sum = 0;
         String str;
         openUrl(url);
         List<WebElement> prices = findElements(pricesTextLocator);
         for (WebElement price:prices) {
-            str = price.getText();
-            str = str.replace("$", "");
+            str = price.getText().replace("$", "");
             log.info(str);
-            sum = sum + Integer.parseInt(str);
+            sum = sum + Double.parseDouble(str);
         }
         return sum;
     }
