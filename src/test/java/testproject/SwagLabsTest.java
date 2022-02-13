@@ -64,6 +64,7 @@ public class SwagLabsTest  extends TestUtilities {
         GetTaxCheckOut2 GetTaxCheckOut2 = new GetTaxCheckOut2(driver, log);
         GetTotalCheckOut2 GetTotalCheckOut2 = new GetTotalCheckOut2(driver, log);
         FinishCheckOut FinishCheckOut = new FinishCheckOut(driver, log);
+        VerifyOrderWasCompleted VerifyOrderWasCompleted = new VerifyOrderWasCompleted(driver, log);
         Login.execute(user, pass);
         AddItemsToCart.execute();
         double sum = SumAllPrices.execute();
@@ -72,5 +73,6 @@ public class SwagLabsTest  extends TestUtilities {
         base.AssertEqual(GetTaxCheckOut2.execute(), Double.parseDouble(format.format(GetItemTotalCheckOut2.execute()*0.08)), "Error en el calculo del tax");
         base.AssertEqual(GetTotalCheckOut2.execute(), (GetItemTotalCheckOut2.execute() + GetTaxCheckOut2.execute()), "Error en la suma total de tax y productos");
         FinishCheckOut.execute();
+        VerifyOrderWasCompleted.execute();
     }
 }
