@@ -21,7 +21,7 @@ public class CheckOut2Page extends BasePageObject{
     public double taxCheckout2(){
         str = find(taxTextLocator).getText().replace("Tax: $", "");
         DecimalFormat format = new DecimalFormat("#.00");
-        log.info(Double.parseDouble(format.format(Double.parseDouble(str))));
+        log.info(Double.parseDouble(format.format(str)));
         return Double.parseDouble(format.format(Double.parseDouble(str)));
     }
     public double totalCheckout2(){
