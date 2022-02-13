@@ -83,7 +83,6 @@ public class BasePageObject {
     }
     //find elements using given locator
     protected List<WebElement> findElements(By locator){
-        wait(locator, 5);
         return driver.findElements(locator);
     }
     //Click on element with given locator when is visible
