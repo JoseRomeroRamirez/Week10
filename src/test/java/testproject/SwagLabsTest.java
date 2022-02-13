@@ -53,11 +53,9 @@ public class SwagLabsTest  extends TestUtilities {
     public void E2ETest(String user, String pass, String firstName, String lastName, String zipCode){
         Login Login = new Login(driver, log);
         AddItemsToCart AddItemsToCart = new AddItemsToCart(driver, log);
-        RemoveItemsFromCart RemoveItemsFromCart = new RemoveItemsFromCart(driver, log);
         CheckOut CheckOut = new CheckOut(driver, log);
         Login.execute(user, pass);
         AddItemsToCart.execute();
-        RemoveItemsFromCart.execute();
         CheckOut.execute(firstName, lastName, zipCode);
     }
 }
