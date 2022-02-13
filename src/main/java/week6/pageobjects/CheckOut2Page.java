@@ -17,7 +17,7 @@ public class CheckOut2Page extends BasePageObject{
         log.info(str);
         str2 = str.replace("Item total: $", "");
         log.info(str2);
-        return Double.parseDouble(str);
+        return Double.parseDouble(str2);
     }
     public double taxCheckout2(){
          str = find(itemTotalTextLocator).getText().replace("Tax: $", "");
