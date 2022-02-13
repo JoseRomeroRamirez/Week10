@@ -19,7 +19,7 @@ public class CartPage extends BasePageObject{
         for (int j=(removeButton.size()-1); j > 0 ; j--) {
             log.info(j + "   " + removeButton.size());
             removeButton.get(j).click();
-            AssertEqual(String.valueOf(j+1),getText(cartCounterLocator),"El Contador de remover al carrito fallo");
+            AssertEqual(String.valueOf(j),getText(cartCounterLocator),"El Contador de remover al carrito fallo");
             log.info("Item removed");
         }
     }
