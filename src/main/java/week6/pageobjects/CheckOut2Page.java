@@ -4,6 +4,8 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.text.DecimalFormat;
+
 public class CheckOut2Page extends BasePageObject{
     public CheckOut2Page(WebDriver driver, Logger log) {
         super(driver, log);
@@ -17,8 +19,9 @@ public class CheckOut2Page extends BasePageObject{
         return Double.parseDouble(str);
     }
     public double taxCheckout2(){
-         str = find(taxTextLocator).getText().replace("Tax: $", "");
-        return Double.parseDouble(str);
+        str = find(taxTextLocator).getText().replace("Tax: $", "");
+        DecimalFormat format = new DecimalFormat("#.00");
+        return Double.parseDouble(format.format(Double.parseDouble(str)));
     }
     public double totalCheckout2(){
         str = find(TotalTextLocator).getText().replace("Total: $", "");
