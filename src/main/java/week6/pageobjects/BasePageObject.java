@@ -33,6 +33,10 @@ public class BasePageObject {
     public void AssertEqual(String actual, String expected, String Message){
         Assert.assertEquals(actual, expected, Message);
     }
+    //Assert equal given two strings
+    public void AssertEqual(Double actual, Double expected, String Message){
+        Assert.assertEquals(actual, expected, Message);
+    }
     //Assert not equal given two strings
     public void AssertNotEqual(String actual, String expected, String Message){
         Assert.assertNotEquals(actual, expected, Message);

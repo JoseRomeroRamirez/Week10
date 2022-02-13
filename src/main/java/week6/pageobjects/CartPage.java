@@ -33,7 +33,6 @@ public class CartPage extends BasePageObject{
         List<WebElement> prices = findElements(pricesTextLocator);
         for (WebElement price:prices) {
             str = price.getText().replace("$", "");
-            log.info(str);
             sum = sum + Double.parseDouble(str);
         }
         return sum;

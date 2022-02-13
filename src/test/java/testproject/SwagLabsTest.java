@@ -4,6 +4,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import week6.actions.*;
 import week6.base.TestUtilities;
+import week6.pageobjects.BasePageObject;
 
 public class SwagLabsTest  extends TestUtilities {
     @DataProvider(name="user-data-success")
@@ -51,13 +52,20 @@ public class SwagLabsTest  extends TestUtilities {
     }
     @Test(dataProvider = "user-data-success")
     public void E2ETest(String user, String pass, String firstName, String lastName, String zipCode){
+        BasePageObject base = new BasePageObject(driver, log);
         Login Login = new Login(driver, log);
         AddItemsToCart AddItemsToCart = new AddItemsToCart(driver, log);
         CheckOut CheckOut = new CheckOut(driver, log);
         SumAllPrices SumAllPrices = new SumAllPrices(driver, log);
+        GetItemTotalCheckOut2 GetItemTotalCheckOut2 = new GetItemTotalCheckOut2(driver,log);
+        GetTaxCheckOut2 GetTaxCheckOut2 = new GetTaxCheckOut2(driver, log);
+        GetTotalCheckOut2 GetTotalCheckOut2 = new GetTotalCheckOut2(driver, log);
         Login.execute(user, pass);
         AddItemsToCart.execute();
-        log.info(SumAllPrices.execute());
+        double sum = SumAllPrices.execute();
         CheckOut.execute(firstName, lastName, zipCode);
+        base.AssertEqual(GetItemTotalCheckOut2.execute(), sum, "Error en la suma total de productos");
+        base.AssertEqual(GetTaxCheckOut2.execute(), (GetItemTotalCheckOut2.execute()*0.08), "Error en el calculo del tax");
+        base.AssertEqual(GetTotalCheckOut2.execute(), (GetItemTotalCheckOut2.execute() + GetTaxCheckOut2.execute()), "Error en la suma total de tax y productos");
     }
 }
