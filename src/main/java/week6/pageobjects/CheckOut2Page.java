@@ -8,15 +8,15 @@ public class CheckOut2Page extends BasePageObject{
     public CheckOut2Page(WebDriver driver, Logger log) {
         super(driver, log);
     }
-    String str;
+    String str, str2;
     By itemTotalTextLocator = By.xpath("//div[@class='summary_subtotal_label']");
     By taxTextLocator = By.xpath("//div[@class='summary_tax_label']");
     By TotalTextLocator = By.xpath("//div[@class='summary_total_label']");
     public double itemTotalCheckout2(){
         str = find(itemTotalTextLocator).getText();
         log.info(str);
-        str = str.replace("Item total: $", "");
-        log.info(str);
+        str2 = str.replace("Item total: $", "");
+        log.info(str2);
         return Double.parseDouble(str);
     }
     public double taxCheckout2(){
