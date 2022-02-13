@@ -41,6 +41,10 @@ public class BasePageObject {
     public void AssertTrue(boolean val, String Message){
         Assert.assertTrue(val, Message);
     }
+    //Assert is not displayed
+    public void AssertNotDisplayed(WebElement val, String Message){
+        Assert.assertFalse(val.isDisplayed(), Message);
+    }
     //open page with given URL
     public void openUrl(String url){
         driver.get(url);
