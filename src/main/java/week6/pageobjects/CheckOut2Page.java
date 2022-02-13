@@ -13,7 +13,10 @@ public class CheckOut2Page extends BasePageObject{
     By taxTextLocator = By.xpath("//div[@class='summary_tax_label']");
     By TotalTextLocator = By.xpath("//div[@class='summary_total_label']");
     public double itemTotalCheckout2(){
-        str = find(itemTotalTextLocator).getText().replace("Item total: $", "");
+        str = find(itemTotalTextLocator).getText();
+        log.info(str);
+        str = str.replace("Item total: $", "");
+        log.info(str);
         return Double.parseDouble(str);
     }
     public double taxCheckout2(){
