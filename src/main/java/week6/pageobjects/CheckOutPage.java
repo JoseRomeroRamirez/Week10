@@ -13,6 +13,7 @@ public class CheckOutPage extends BasePageObject{
     By zipTextBoxLocator = By.xpath("//input[@id='postal-code']");
     By continueButtonLocator = By.xpath("//input[@id='continue']");
     public void CheckOut(String firstName, String lastName, String zipCode){
+        openUrl("https://www.saucedemo.com/checkout-step-one.html");
         type(firstName,firstNameTextBoxLocator);
         type(lastName,lastNameTextBoxLocator);
         type(zipCode,zipTextBoxLocator);
