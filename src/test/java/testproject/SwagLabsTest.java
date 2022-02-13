@@ -6,6 +6,8 @@ import week6.actions.*;
 import week6.base.TestUtilities;
 import week6.pageobjects.BasePageObject;
 
+import java.text.DecimalFormat;
+
 public class SwagLabsTest  extends TestUtilities {
     @DataProvider(name="user-data-success")
     Object[][] userData(){
@@ -52,6 +54,7 @@ public class SwagLabsTest  extends TestUtilities {
     }
     @Test(dataProvider = "user-data-success")
     public void E2ETest(String user, String pass, String firstName, String lastName, String zipCode){
+        DecimalFormat format = new DecimalFormat("#.00");
         BasePageObject base = new BasePageObject(driver, log);
         Login Login = new Login(driver, log);
         AddItemsToCart AddItemsToCart = new AddItemsToCart(driver, log);
@@ -68,7 +71,7 @@ public class SwagLabsTest  extends TestUtilities {
         log.info(GetTaxCheckOut2.execute());
         log.info(GetTotalCheckOut2.execute());
         base.AssertEqual(GetItemTotalCheckOut2.execute(), sum, "Error en la suma total de productos");
-        base.AssertEqual(GetTaxCheckOut2.execute(), (GetItemTotalCheckOut2.execute()*0.08), "Error en el calculo del tax");
+        base.AssertEqual(GetTaxCheckOut2.execute(), Double.parseDouble(format.format(GetItemTotalCheckOut2.execute()*0.08)), "Error en el calculo del tax");
         base.AssertEqual(GetTotalCheckOut2.execute(), (GetItemTotalCheckOut2.execute() + GetTaxCheckOut2.execute()), "Error en la suma total de tax y productos");
     }
 }
