@@ -18,7 +18,9 @@ public class CartPage extends BasePageObject{
         List<WebElement> removeButton = findElements(removeButtonLocator);
         for (int j=(removeButton.size()-1); j >= 0 ; j--) {
             removeButton.get(j).click();
-            if (j==0){AssertTrue(findElements(removeButtonLocator).size() == 0,"Se encontro elementos cuando se esperaba que el carrito estuviese vacio");}
+            if (j==0){
+                Boolean existeElemento = findElements(removeButtonLocator).size() == 0;
+                AssertTrue(existeElemento,"Se encontro elementos cuando se esperaba que el carrito estuviese vacio");}
             else{AssertEqual(String.valueOf(j),getText(cartCounterLocator),"El Contador de remover al carrito fallo");}
             log.info("Item removed");
         }
