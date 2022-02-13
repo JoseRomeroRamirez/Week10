@@ -15,7 +15,6 @@ public class MainPage extends BasePageObject{
     By cartCounterLocator = By.xpath("//span[contains(@class, 'shopping_cart_badge')]");
     int productosMax =10;
     public void addItemsToCart(){
-
         List<WebElement> addButton = findElements(addToCartButtonLocator);
         if (productosMax > addButton.size()){productosMax = addButton.size();}
         for (int j=0; j < productosMax; j++) {

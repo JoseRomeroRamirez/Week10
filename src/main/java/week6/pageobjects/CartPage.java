@@ -13,8 +13,10 @@ public class CartPage extends BasePageObject{
     }
     By removeButtonLocator = By.xpath("//button[contains(@class, 'btn') and contains(@class, 'btn_secondary') and contains(@class, 'cart_button')]");
     By cartCounterLocator = By.xpath("//span[contains(@class, 'shopping_cart_badge')]");
+    By pricesTextLocator = By.xpath("//div[@class='inventory_item_price']");
+    String url = "https://www.saucedemo.com/cart.html";
     public void removeItemsToCart(){
-        openUrl("https://www.saucedemo.com/cart.html");
+        openUrl(url);
         List<WebElement> removeButton = findElements(removeButtonLocator);
         for (int j=(removeButton.size()-1); j >= 0 ; j--) {
             removeButton.get(j).click();
@@ -23,5 +25,16 @@ public class CartPage extends BasePageObject{
             else{AssertEqual(String.valueOf(j),getText(cartCounterLocator),"El Contador de remover al carrito fallo");}
             log.info("Item removed");
         }
+    }
+    public int sumAllPrices(){
+        int sum = 0;
+        String str;
+        openUrl(url);
+        List<WebElement> prices = findElements(pricesTextLocator);
+        for (WebElement price:prices) {
+            str = price.getText().replaceAll("$", "");
+            sum = sum + Integer.parseInt(str);
+        }
+        return sum;
     }
 }

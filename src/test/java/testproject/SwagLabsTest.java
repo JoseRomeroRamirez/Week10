@@ -54,8 +54,10 @@ public class SwagLabsTest  extends TestUtilities {
         Login Login = new Login(driver, log);
         AddItemsToCart AddItemsToCart = new AddItemsToCart(driver, log);
         CheckOut CheckOut = new CheckOut(driver, log);
+        SumAllPrices SumAllPrices = new SumAllPrices(driver, log);
         Login.execute(user, pass);
         AddItemsToCart.execute();
+        log.info(SumAllPrices.execute());
         CheckOut.execute(firstName, lastName, zipCode);
     }
 }
