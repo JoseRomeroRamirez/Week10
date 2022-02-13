@@ -2,19 +2,16 @@ package testproject;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import week6.actions.AddItemsToCart;
-import week6.actions.GetErrorText;
-import week6.actions.Login;
-import week6.actions.RemoveItemsFromCart;
+import week6.actions.*;
 import week6.base.TestUtilities;
 
 public class SwagLabsTest  extends TestUtilities {
     @DataProvider(name="user-data-success")
     Object[][] userData(){
         return new Object[][] {
-                {"standard_user","secret_sauce"},
-                {"problem_user", "secret_sauce"},
-                {"performance_glitch_user","secret_sauce"},
+                {"standard_user","secret_sauce","Jose","Romero","10001"},
+                {"problem_user", "secret_sauce","Antonio","Ramirez","1101"},
+                {"performance_glitch_user","secret_sauce","Eduardo","Morales","3401"},
         };
     }
     @DataProvider(name="user-data-fail")
@@ -51,5 +48,16 @@ public class SwagLabsTest  extends TestUtilities {
         Login.execute(user, pass);
         AddItemsToCart.execute();
         RemoveItemsFromCart.execute();
+    }
+    @Test(dataProvider = "user-data-success")
+    public void E2ETest(String user, String pass, String firstName, String lastName, String zipCode){
+        Login Login = new Login(driver, log);
+        AddItemsToCart AddItemsToCart = new AddItemsToCart(driver, log);
+        RemoveItemsFromCart RemoveItemsFromCart = new RemoveItemsFromCart(driver, log);
+        CheckOut CheckOut = new CheckOut(driver, log);
+        Login.execute(user, pass);
+        AddItemsToCart.execute();
+        RemoveItemsFromCart.execute();
+        CheckOut.execute(firstName, lastName, zipCode);
     }
 }
