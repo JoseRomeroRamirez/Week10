@@ -27,23 +27,15 @@ public class SwagLabsTest  extends TestUtilities {
                 {"standard_user","", "Epic sadface: Password is required"}
         };
     }
-    @DataProvider(name="socialMedia")
-    Object[][] socialMedia(){
-        return new Object[][]{
-                {"Twitter","https://twitter.com/saucelabs"},
-                {"Facebook","https://www.facebook.com/saucelabs"},
-                {"LinkedIn","https://www.linkedin.com/company/sauce-labs/"}
-        };
-    }
     @Test(dataProvider = "user-data-success")
-    public void LoginTestSuccess(String user, String pass, String firstName, String lastName, String zipCode){
+    public void LoginTestSuccessTest(String user, String pass, String firstName, String lastName, String zipCode){
         Login Login = new Login(driver, log);
         log.info("Login in to the E-commerce with: " +user+" password: "+ pass);
         Login.execute(user, pass);
         Login.AssertEqual(Login.GetUrl(driver), "https://www.saucedemo.com/inventory.html", "No coincide la URL de la pagina principal");
     }
     @Test(dataProvider = "user-data-fail")
-    public void LoginTestFail(String user, String pass, String mensaje){
+    public void LoginTestFailTest(String user, String pass, String mensaje){
         Login Login = new Login(driver, log);
         GetErrorText GetErrorText = new GetErrorText(driver, log);
         log.info("Login in to the E-commerce with: " +user+" password: "+ pass);
@@ -52,7 +44,7 @@ public class SwagLabsTest  extends TestUtilities {
         Login.AssertEqual(GetErrorText.execute(),mensaje, "Mensaje de error Erroneo");
     }
     @Test(dataProvider = "user-data-success")
-    public void RemoveItemsFromCart(String user, String pass, String firstName, String lastName, String zipCode){
+    public void RemoveItemsFromCartTest(String user, String pass, String firstName, String lastName, String zipCode){
         Login Login = new Login(driver, log);
         AddItemsToCart AddItemsToCart = new AddItemsToCart(driver, log);
         RemoveItemsFromCart RemoveItemsFromCart = new RemoveItemsFromCart(driver, log);

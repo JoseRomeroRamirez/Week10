@@ -1,13 +1,81 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="AutomationTestSuite"  >
-    <test name="Form Test">
+    <test name="LoginTestSuccessTest">
         <parameter name="url" value="https://www.saucedemo.com/"/>
-        <parameter name="user" value="standard_user"/>
-        <parameter name="pass" value="secret_sauce"/>
+        <classes>
+            <class name="testproject.SwagLabsTest">
+                <methods>
+                    <include name = "LoginTestSuccessTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="LoginTestFailTest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
+        <classes>
+            <class name="testproject.SwagLabsTest">
+                <methods>
+                    <include name = "LoginTestFailTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="RemoveItemsFromCartTest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
+        <classes>
+            <class name="testproject.SwagLabsTest">
+                <methods>
+                    <include name = "RemoveItemsFromCartTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="VerifyAboutSectionTest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
         <classes>
             <class name="testproject.SwagLabsTest">
                 <methods>
                     <include name = "VerifyAboutSectionTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="twitterTest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
+        <classes>
+            <class name="testproject.SwagLabsTest">
+                <methods>
+                    <include name = "twitterTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="FacebookTest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
+        <classes>
+            <class name="testproject.SwagLabsTest">
+                <methods>
+                    <include name = "FacebookTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="linkedinTest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
+        <classes>
+            <class name="testproject.SwagLabsTest">
+                <methods>
+                    <include name = "linkedinTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="E2ETest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
+        <classes>
+            <class name="testproject.SwagLabsTest">
+                <methods>
+                    <include name = "E2ETest"/>
                 </methods>
             </class>
         </classes>
