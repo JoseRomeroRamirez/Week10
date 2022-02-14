@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainPage extends BasePageObject{
@@ -35,7 +36,8 @@ public class MainPage extends BasePageObject{
     }
     public void goToSocialMediaTwitter(){
         click(twitterLocator);
-        driver.switchTo().frame(1);
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
         AssertEqual(GetUrl(driver),urlTwitter, "Url Social media no coincide");
     }
 }
