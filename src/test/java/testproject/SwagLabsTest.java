@@ -83,9 +83,11 @@ public class SwagLabsTest  extends TestUtilities {
         FinishCheckOut.execute();
         VerifyOrderWasCompleted.execute();
     }
-    @Test()
-    public void VerifyAboutSectionTest(){
+    @Test(dataProvider = "user-data-success")
+    public void VerifyAboutSectionTest(String user, String pass, String firstName, String lastName, String zipCode){
+        Login Login = new Login(driver, log);
         GoToAboutSection GoToAbout = new GoToAboutSection(driver, log);
+        Login.execute(user, pass);
         GoToAbout.execute();
     }
     @Test(dataProvider = "user-data-success")
