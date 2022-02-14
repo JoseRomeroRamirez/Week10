@@ -6,6 +6,9 @@
         <parameter name="pass" value="secret_sauce"/>
         <classes>
             <class name="testproject.SwagLabsTest">
+                <methods>
+                    <include name = "VerifyAboutSectionTest"/>
+                </methods>
             </class>
         </classes>
     </test>
