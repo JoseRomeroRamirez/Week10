@@ -93,6 +93,6 @@ public class SwagLabsTest  extends TestUtilities {
         GoToSocialMediaTwitter GoToSocialMediaTwitter = new GoToSocialMediaTwitter(driver, log);
         Login Login = new Login(driver, log);
         Login.execute(user, pass);
-        GoToSocialMediaTwitter.execute();
+
     }
 }
