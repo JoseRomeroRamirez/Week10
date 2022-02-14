@@ -90,7 +90,7 @@ public class SwagLabsTest  extends TestUtilities {
     }
 
     @Test(dataProvider = "user-data-success")
-    public void SocialMediaTest(String user, String pass){
+    public void SocialMediaTest(String user, String pass, String firstName, String lastName, String zipCode){
         Login Login = new Login(driver, log);
         log.info("Login in to the E-commerce with: " +user+" password: "+ pass);
         Login.execute(user, pass);
