@@ -33,10 +33,10 @@ public class MainPage extends BasePageObject{
     }
     public void goToAboutSection(){
         click(menuLocator);
-        click(aboutSectionLocator);
         try {Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();}
+        click(aboutSectionLocator);
         AssertEqual(GetUrl(driver),"https://saucelabs.com/","La Url no es la esperada");
     }
     public void goToSocialMediaTwitter(){
