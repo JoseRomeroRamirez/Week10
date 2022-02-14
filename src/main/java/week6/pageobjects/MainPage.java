@@ -21,7 +21,7 @@ public class MainPage extends BasePageObject{
     By linkedInLocator = By.xpath("//a[contains(text(),'LinkedIn')]");
     String urlTwitter = "https://twitter.com/saucelabs";
     String urlFacebook = "https://www.facebook.com/saucelabs";
-    String urlLinkedin = "sauce-labs]";
+    String urlLinkedin = "sauce-labs";
     int productosMax =10;
     public void addItemsToCart(){
         List<WebElement> addButton = findElements(addToCartButtonLocator);
@@ -46,7 +46,7 @@ public class MainPage extends BasePageObject{
             e.printStackTrace();}
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         switchTab(1,tabs);
-        AssertEqual(GetUrl(driver),urlTwitter, "Url Social media no coincide");
+        AssertEqual(GetUrl(driver),urlTwitter, "Url Social media twitter no coincide");
     }
     public void goToSocialMediaFacebook(){
         click(facebookLocator);
@@ -55,7 +55,7 @@ public class MainPage extends BasePageObject{
             e.printStackTrace();}
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         switchTab(1,tabs);
-        AssertEqual(GetUrl(driver),urlFacebook, "Url Social media no coincide");
+        AssertEqual(GetUrl(driver),urlFacebook, "Url Social media facebook no coincide");
     }
     public void goToSocialMediaLinkedin(){
         click(linkedInLocator);
@@ -64,6 +64,6 @@ public class MainPage extends BasePageObject{
             e.printStackTrace();}
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         switchTab(1,tabs);
-        AssertTrue(GetUrl(driver).contains(urlLinkedin),"Url Social media no coincide");
+        AssertTrue(GetUrl(driver).contains(urlLinkedin),"Url Social media linkedin no coincide");
     }
 }
