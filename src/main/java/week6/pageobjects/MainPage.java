@@ -13,6 +13,8 @@ public class MainPage extends BasePageObject{
     }
     By addToCartButtonLocator = By.xpath("//button[contains(@class, 'btn') and contains(@class, 'btn_primary')]");
     By cartCounterLocator = By.xpath("//span[contains(@class, 'shopping_cart_badge')]");
+    By menuLocator = By.xpath("//button[@id='react-burger-menu-btn']");
+    By aboutSectionLocator = By.xpath("//a[@id='about_sidebar_link']");
     int productosMax =10;
     public void addItemsToCart(){
         List<WebElement> addButton = findElements(addToCartButtonLocator);
@@ -21,5 +23,10 @@ public class MainPage extends BasePageObject{
             addButton.get(j).click();
             AssertEqual(String.valueOf(j+1),getText(cartCounterLocator),"El Contador de agregar al carrito fallo");
         }
+    }
+    public void goToAboutSection(){
+        click(menuLocator);
+        click(aboutSectionLocator);
+        AssertEqual(GetUrl(driver),"https://saucelabs.com/","La Url no es la esperada");
     }
 }

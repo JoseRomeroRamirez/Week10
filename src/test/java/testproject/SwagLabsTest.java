@@ -75,4 +75,9 @@ public class SwagLabsTest  extends TestUtilities {
         FinishCheckOut.execute();
         VerifyOrderWasCompleted.execute();
     }
+    @Test()
+    public void VerifyAboutSectionTest(String user, String pass){
+        GoToAboutSection GoToAbout = new GoToAboutSection(driver, log);
+        GoToAbout.execute();
+    }
 }
