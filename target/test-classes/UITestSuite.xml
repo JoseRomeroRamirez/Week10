@@ -1,137 +1,81 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="AutomationTestSuite"  >
-    <test name="OpenTabTest">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="url" value="https://www.google.com/"/>
-        <parameter name="numberOfTabs" value="5"></parameter>
+    <test name="LoginTestSuccessTest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
         <classes>
-            <class name="testproject.herokuappWeb">
+            <class name="testproject.SwagLabsTest">
                 <methods>
-                    <include name="OpenTabsTest"/>
+                    <include name = "LoginTestSuccessTest"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="SearchTextTest">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="url" value="https://www.google.com/"/>
-        <parameter name="searchText" value="the internet herokuapp"></parameter>
+    <test name="LoginTestFailTest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
         <classes>
-            <class name="testproject.herokuappWeb">
+            <class name="testproject.SwagLabsTest">
                 <methods>
-                    <include name="SearchTextTest"/>
+                    <include name = "LoginTestFailTest"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="ScrollWebElementTest">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="url" value="https://the-internet.herokuapp.com/"/>
+    <test name="RemoveItemsFromCartTest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
         <classes>
-            <class name="testproject.herokuappWeb">
+            <class name="testproject.SwagLabsTest">
                 <methods>
-                    <include name="ScrollWebElementTest"/>
+                    <include name = "RemoveItemsFromCartTest"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="PrintNameUserTest">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="url" value="https://the-internet.herokuapp.com/hovers"/>
-        <parameter name="numberOfTabs" value="5"></parameter>
+    <test name="VerifyAboutSectionTest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
         <classes>
-            <class name="testproject.herokuappWeb">
+            <class name="testproject.SwagLabsTest">
                 <methods>
-                    <include name="PrintNameUserTest"/>
+                    <include name = "VerifyAboutSectionTest"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="PrintViewProfileTest">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="url" value="https://the-internet.herokuapp.com/hovers"/>
-        <parameter name="numberOfTabs" value="5"></parameter>
+    <test name="twitterTest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
         <classes>
-            <class name="testproject.herokuappWeb">
+            <class name="testproject.SwagLabsTest">
                 <methods>
-                    <include name="PrintViewProfileTest"/>
+                    <include name = "twitterTest"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="ClickViewProfileTest">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="url" value="https://the-internet.herokuapp.com/hovers"/>
-        <parameter name="numberOfTabs" value="5"></parameter>
+    <test name="FacebookTest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
         <classes>
-            <class name="testproject.herokuappWeb">
+            <class name="testproject.SwagLabsTest">
                 <methods>
-                    <include name="ClickViewProfileTest"/>
+                    <include name = "FacebookTest"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="EndToEndTest">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="url" value="https://www.google.com/"/>
-        <parameter name="numberOfTabs" value="5"></parameter>
-        <parameter name="searchText" value="the internet herokuapp"></parameter>
+    <test name="linkedinTest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
         <classes>
-            <class name="testproject.herokuappWeb">
+            <class name="testproject.SwagLabsTest">
                 <methods>
-                    <include name="end2endTest"/>
+                    <include name = "linkedinTest"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="Tesst01">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="url" value="https://rahulshettyacademy.com/AutomationPractice/"/>
-        <parameter name="suggessionClassExampleText" value="EL SAL"></parameter>
-        <parameter name="dropdownSelect" value="Option2"></parameter>
+    <test name="E2ETest">
+        <parameter name="url" value="https://www.saucedemo.com/"/>
         <classes>
-            <class name="testproject.rahulshettyacademyWeb">
+            <class name="testproject.SwagLabsTest">
                 <methods>
-                    <include name="SelectRandomRadioLocatorTest"/>
-                    <include name="PrintSugessionClassExampleTest"/>
-                    <include name="SelectDropdownTest"/>
-                    <include name="ClickHeaderButtonsUrlsTest"/>
-                    <include name="SwitchTabsTest"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="Test02">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="url" value="https://rahulshettyacademy.com/AutomationPractice/"/>
-        <parameter name="suggessionClassExampleText" value="EL SAL"></parameter>
-        <parameter name="dropdownSelect" value="Option2"></parameter>
-        <classes>
-            <class name="testproject.rahulshettyacademyWeb">
-                <methods>
-                    <include name="PrintSugessionClassExampleTest"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="Form Test">
-        <parameter name="browser" value="firefox"/>
-        <parameter name="url" value="https://demoqa.com/"/>
-        <classes>
-            <class name="testproject.ToolsQAWebTest">
-                <methods>
-                    <include name="FormTest"></include>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="Alert Frame Window Test">
-        <parameter name="browser" value="chrome"/>
-        <parameter name="url" value="https://demoqa.com/"/>
-        <classes>
-            <class name="testproject.ToolsQAWebTest">
-                <methods>
-                    <include name="AlertFrameWindowTest"></include>
+                    <include name = "E2ETest"/>
                 </methods>
             </class>
         </classes>

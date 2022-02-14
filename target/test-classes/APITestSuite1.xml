@@ -1,12 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="AutomationTestSuite"  >
     <test name="Form Test">
-        <parameter name="url" value="https://reqres.in/api/users?page=2"/>
-        <parameter name="url2" value="https://reqres.in/api/users/"/>
-        <parameter name="email" value="george.edwards@reqres.in"/>
-        <parameter name="pokeAPIUrl" value="https://pokeapi.co/api/v2/berry-firmness/"/>
-        <parameter name="schema" value="schemaFirmess.json"/>
-        <parameter name="firmess" value="4"/>
+        <parameter name="url" value="https://fakerestapi.azurewebsites.net/api/v1/Activities"/>
         <classes>
             <class name="testproject.APITest">
             </class>
