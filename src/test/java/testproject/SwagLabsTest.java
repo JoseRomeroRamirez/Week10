@@ -88,10 +88,12 @@ public class SwagLabsTest  extends TestUtilities {
         GoToAboutSection GoToAbout = new GoToAboutSection(driver, log);
         GoToAbout.execute();
     }
+
     @Test(dataProvider = "user-data-success")
     public void SocialMediaTest(String user, String pass){
         Login Login = new Login(driver, log);
+        log.info("Login in to the E-commerce with: " +user+" password: "+ pass);
         Login.execute(user, pass);
-
+        Login.AssertEqual(Login.GetUrl(driver), "https://www.saucedemo.com/inventory.html", "No coincide la URL de la pagina principal");
     }
 }
