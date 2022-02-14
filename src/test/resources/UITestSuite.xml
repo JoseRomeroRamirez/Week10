@@ -7,7 +7,7 @@
         <classes>
             <class name="testproject.SwagLabsTest">
                 <methods>
-                    <include name = "E2ETest"/>
+                    <include name = "SocialMediaTest"/>
                 </methods>
             </class>
         </classes>
