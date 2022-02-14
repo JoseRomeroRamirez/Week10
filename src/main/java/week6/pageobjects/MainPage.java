@@ -20,6 +20,8 @@ public class MainPage extends BasePageObject{
     By facebookLocator = By.xpath("//a[contains(text(),'Facebook')]");
     By linkedInLocator = By.xpath("//a[contains(text(),'LinkedIn')]");
     String urlTwitter = "https://twitter.com/saucelabs";
+    String urlFacebook = "https://www.facebook.com/saucelabs";
+    String urlLinkedin = "https://www.linkedin.com/company/sauce-labs/";
     int productosMax =10;
     public void addItemsToCart(){
         List<WebElement> addButton = findElements(addToCartButtonLocator);
@@ -36,13 +38,29 @@ public class MainPage extends BasePageObject{
     }
     public void goToSocialMediaTwitter(){
         click(twitterLocator);
-        try {
-            Thread.sleep(5000);
+        try {Thread.sleep(2000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            e.printStackTrace();}
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
+        switchTab(1,tabs);
         AssertEqual(GetUrl(driver),urlTwitter, "Url Social media no coincide");
+    }
+    public void goToSocialMediaFacebook(){
+        click(facebookLocator);
+        try {Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();}
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        switchTab(1,tabs);
+        AssertEqual(GetUrl(driver),urlFacebook, "Url Social media no coincide");
+    }
+    public void goToSocialMediaLinkedin(){
+        click(linkedInLocator);
+        try {Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();}
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        switchTab(1,tabs);
+        AssertEqual(GetUrl(driver),urlLinkedin, "Url Social media no coincide");
     }
 }

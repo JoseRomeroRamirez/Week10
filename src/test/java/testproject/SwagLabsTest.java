@@ -36,7 +36,7 @@ public class SwagLabsTest  extends TestUtilities {
         };
     }
     @Test(dataProvider = "user-data-success")
-    public void LoginTestSuccess(String user, String pass){
+    public void LoginTestSuccess(String user, String pass, String firstName, String lastName, String zipCode){
         Login Login = new Login(driver, log);
         log.info("Login in to the E-commerce with: " +user+" password: "+ pass);
         Login.execute(user, pass);
@@ -52,7 +52,7 @@ public class SwagLabsTest  extends TestUtilities {
         Login.AssertEqual(GetErrorText.execute(),mensaje, "Mensaje de error Erroneo");
     }
     @Test(dataProvider = "user-data-success")
-    public void RemoveItemsFromCart(String user, String pass){
+    public void RemoveItemsFromCart(String user, String pass, String firstName, String lastName, String zipCode){
         Login Login = new Login(driver, log);
         AddItemsToCart AddItemsToCart = new AddItemsToCart(driver, log);
         RemoveItemsFromCart RemoveItemsFromCart = new RemoveItemsFromCart(driver, log);
@@ -88,12 +88,26 @@ public class SwagLabsTest  extends TestUtilities {
         GoToAboutSection GoToAbout = new GoToAboutSection(driver, log);
         GoToAbout.execute();
     }
-
     @Test(dataProvider = "user-data-success")
-    public void SocialMediaTest(String user, String pass, String firstName, String lastName, String zipCode){
+    public void twitterTest(String user, String pass, String firstName, String lastName, String zipCode){
         Login Login = new Login(driver, log);
         GoToSocialMediaTwitter GoToSocialMediaTwitter = new GoToSocialMediaTwitter(driver, log);
         Login.execute(user, pass);
         GoToSocialMediaTwitter.execute();
     }
+    @Test(dataProvider = "user-data-success")
+    public void FacebookTest(String user, String pass, String firstName, String lastName, String zipCode){
+        Login Login = new Login(driver, log);
+        GoToSocialMediaFacebook GoToSocialMediaFacebook = new GoToSocialMediaFacebook(driver, log);
+        Login.execute(user, pass);
+        GoToSocialMediaFacebook.execute();
+    }
+    @Test(dataProvider = "user-data-success")
+    public void linkedinTest(String user, String pass, String firstName, String lastName, String zipCode){
+        Login Login = new Login(driver, log);
+        GoToSocialMediaLinkedin GoToSocialMediaLinkedin = new GoToSocialMediaLinkedin(driver, log);
+        Login.execute(user, pass);
+        GoToSocialMediaLinkedin.execute();
+    }
+
 }

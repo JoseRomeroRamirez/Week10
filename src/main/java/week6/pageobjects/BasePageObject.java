@@ -22,6 +22,8 @@ public class BasePageObject {
         this.driver = driver;
         this.log =log;
     }
+    //Switch tab
+    public void switchTab(int tab, ArrayList<String> tabs){driver.switchTo().window(tabs.get(tab));}
     //Get text given locator
     public String getText(By locator){ return find(locator).getText();}
     //Count actual tabs
