@@ -90,7 +90,6 @@ public class SwagLabsTest  extends TestUtilities {
     }
     @Test(dataProvider = "user-data-success")
     public void SocialMediaTest(String user, String pass){
-        GoToSocialMediaTwitter GoToSocialMediaTwitter = new GoToSocialMediaTwitter(driver, log);
         Login Login = new Login(driver, log);
         Login.execute(user, pass);
 
