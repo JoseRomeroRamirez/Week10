@@ -21,7 +21,7 @@ public class MainPage extends BasePageObject{
     By linkedInLocator = By.xpath("//a[contains(text(),'LinkedIn')]");
     String urlTwitter = "https://twitter.com/saucelabs";
     String urlFacebook = "https://www.facebook.com/saucelabs";
-    String urlLinkedin = "www.linkedin.com%2Fcompany%2Fsauce-labs%2F]";
+    String urlLinkedin = "sauce-labs]";
     int productosMax =10;
     public void addItemsToCart(){
         List<WebElement> addButton = findElements(addToCartButtonLocator);
@@ -34,6 +34,9 @@ public class MainPage extends BasePageObject{
     public void goToAboutSection(){
         click(menuLocator);
         click(aboutSectionLocator);
+        try {Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();}
         AssertEqual(GetUrl(driver),"https://saucelabs.com/","La Url no es la esperada");
     }
     public void goToSocialMediaTwitter(){
