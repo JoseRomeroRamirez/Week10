@@ -27,6 +27,14 @@ public class SwagLabsTest  extends TestUtilities {
                 {"standard_user","", "Epic sadface: Password is required"}
         };
     }
+    @DataProvider(name="socialMedia")
+    Object[][] socialMedia(){
+        return new Object[][]{
+                {"Twitter","https://twitter.com/saucelabs"},
+                {"Facebook","https://www.facebook.com/saucelabs"},
+                {"LinkedIn","https://www.linkedin.com/company/sauce-labs/"}
+        };
+    }
     @Test(dataProvider = "user-data-success")
     public void LoginTestSuccess(String user, String pass){
         Login Login = new Login(driver, log);
@@ -76,8 +84,13 @@ public class SwagLabsTest  extends TestUtilities {
         VerifyOrderWasCompleted.execute();
     }
     @Test()
-    public void VerifyAboutSectionTest(String user, String pass){
+    public void VerifyAboutSectionTest(){
         GoToAboutSection GoToAbout = new GoToAboutSection(driver, log);
         GoToAbout.execute();
+    }
+    @Test(dataProvider = "socialMedia")
+    public void SocialMediaTest(String socialMedia, String url){
+        GoToSocialMedia GoToSocialMedia = new GoToSocialMedia(driver, log);
+        GoToSocialMedia.execute(socialMedia, url);
     }
 }

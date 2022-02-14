@@ -29,4 +29,10 @@ public class MainPage extends BasePageObject{
         click(aboutSectionLocator);
         AssertEqual(GetUrl(driver),"https://saucelabs.com/","La Url no es la esperada");
     }
+    public void goToSocialMedia(String socialMedia, String url){
+        By socialMediaLocator = By.xpath("//a[contains(text(),'"+socialMedia+"')]");
+        click(socialMediaLocator);
+        driver.switchTo().frame(1);
+        AssertEqual(GetUrl(driver),url, "Url Social media no coincide");
+    }
 }
