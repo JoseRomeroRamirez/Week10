@@ -11,6 +11,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 public class fakerestApi extends BasePageObject {
     String url = "https://fakerestapi.azurewebsites.net/api/v1/Activities";
     String urlBooks = "https://fakerestapi.azurewebsites.net/api/v1/Books";
+    String urlCoverPhotosBooks = "https://fakerestapi.azurewebsites.net/api/v1/CoverPhotos";
 
     public void almacenarIds() {
         String response = getResponse(url);
@@ -38,5 +39,9 @@ public class fakerestApi extends BasePageObject {
         Response response = given()
                 .get(urlBooks).then().assertThat().body(matchesJsonSchemaInClasspath("schemaBooks.json")).extract().response();
         System.out.println(response.getHeaders());
+    }
+    public void coverPhotosBooks(){
+        String response = getResponse(urlCoverPhotosBooks);
+        System.out.println(response);
     }
 }

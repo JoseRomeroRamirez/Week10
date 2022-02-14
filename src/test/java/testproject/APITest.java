@@ -30,4 +30,9 @@ public class APITest{
         fakerestApi fakerestApi = new fakerestApi();
         fakerestApi.datosBooks();
     }
+    @Test
+    public void coverPhotosBooksTest(){
+        fakerestApi fakerestApi = new fakerestApi();
+        fakerestApi.coverPhotosBooks();
+    }
 }
