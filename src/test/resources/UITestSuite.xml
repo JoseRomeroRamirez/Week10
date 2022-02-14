@@ -6,9 +6,6 @@
         <parameter name="pass" value="secret_sauce"/>
         <classes>
             <class name="testproject.SwagLabsTest">
-                <methods>
-                    <include name = "SocialMediaTest"/>
-                </methods>
             </class>
         </classes>
     </test>
