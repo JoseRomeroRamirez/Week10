@@ -11,6 +11,6 @@ public class GoToSocialMediaTwitter extends BasePageObject {
     }
     public void execute(){
         MainPage MainPage = new MainPage(driver, log);
-        MainPage.goToSocialMedia();
+        MainPage.goToSocialMediaTwitter();
     }
 }
