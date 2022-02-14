@@ -37,7 +37,7 @@ public class MainPage extends BasePageObject{
     public void goToSocialMediaTwitter(){
         click(twitterLocator);
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
+        //driver.switchTo().window(tabs.get(1));
         AssertEqual(GetUrl(driver),urlTwitter, "Url Social media no coincide");
     }
 }
