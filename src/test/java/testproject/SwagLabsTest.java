@@ -88,9 +88,11 @@ public class SwagLabsTest  extends TestUtilities {
         GoToAboutSection GoToAbout = new GoToAboutSection(driver, log);
         GoToAbout.execute();
     }
-    @Test(dataProvider = "socialMedia")
-    public void SocialMediaTest(String socialMedia, String url){
-        GoToSocialMedia GoToSocialMedia = new GoToSocialMedia(driver, log);
-        GoToSocialMedia.execute(socialMedia, url);
+    @Test(dataProvider = "user-data-success")
+    public void SocialMediaTest(String user, String pass){
+        GoToSocialMediaTwitter GoToSocialMediaTwitter = new GoToSocialMediaTwitter(driver, log);
+        Login Login = new Login(driver, log);
+        Login.execute(user, pass);
+        GoToSocialMediaTwitter.execute();
     }
 }
