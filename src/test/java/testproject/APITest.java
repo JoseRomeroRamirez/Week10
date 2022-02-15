@@ -1,11 +1,12 @@
 package testproject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import week7.pageobjects.fakerestApi;
 
+
 public class APITest{
+
 
     @DataProvider(name="data")
     Object[][] userData(){

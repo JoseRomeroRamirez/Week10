@@ -1,9 +1,30 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="AutomationTestSuite"  >
-    <test name="Form Test">
-        <parameter name="url" value="https://fakerestapi.azurewebsites.net/api/v1/Activities"/>
+    <test name="almacenarIdsTest">
         <classes>
             <class name="testproject.APITest">
+                <methods><include name="almacenarIdsTest"/></methods>
+            </class>
+        </classes>
+    </test>
+    <test name="postMultipleActivitiesTest">
+        <classes>
+            <class name="testproject.APITest">
+                <methods><include name="postMultipleActivitiesTest"/></methods>
+            </class>
+        </classes>
+    </test>
+    <test name="schemaBooksTest">
+        <classes>
+            <class name="testproject.APITest">
+                <methods><include name="schemaBooksTest"/></methods>
+            </class>
+        </classes>
+    </test>
+    <test name="coverPhotosBooksTest">
+        <classes>
+            <class name="testproject.APITest">
+                <methods><include name="coverPhotosBooksTest"/></methods>
             </class>
         </classes>
     </test>
