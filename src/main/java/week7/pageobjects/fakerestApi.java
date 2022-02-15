@@ -1,9 +1,15 @@
 package week7.pageobjects;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import week7.POJO.coverPhotosBooksPOJO;
+import java.util.ArrayList;
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
@@ -40,8 +46,28 @@ public class fakerestApi extends BasePageObject {
                 .get(urlBooks).then().assertThat().body(matchesJsonSchemaInClasspath("schemaBooks.json")).extract().response();
         System.out.println(response.getHeaders());
     }
-    public void coverPhotosBooks(){
+    public void coverPhotosBooks() throws JsonProcessingException {
         String response = getResponse(urlCoverPhotosBooks);
-        System.out.println(response);
+        JsonPath j = new JsonPath(response);
+        int count = j.getInt("data.size()");
+        List<coverPhotosBooksPOJO> books = new ArrayList<coverPhotosBooksPOJO>();
+        for (int i = 1; i <= (count); i++) {
+            String id = getResponse(urlCoverPhotosBooks + "/" + (i));
+            JsonPath jBook = new JsonPath(id);
+            coverPhotosBooksPOJO book = new coverPhotosBooksPOJO();
+            book.setId(jBook.getString("id"));
+            book.setIdBook(jBook.getString("idBook"));
+            book.setUrl(jBook.getString("url"));
+            books.add(book);
+        }
+        ObjectMapper Mapper = new ObjectMapper();
+        String allBooks =  Mapper.writerWithDefaultPrettyPrinter().writeValueAsString(books);
+        List<coverPhotosBooksPOJO> booksDetails = Mapper.readValue(allBooks, new TypeReference<List<coverPhotosBooksPOJO>>() {});
+        for (coverPhotosBooksPOJO bookL: booksDetails
+             ) {
+            System.out.println("IdBook: "+bookL.getId());
+            System.out.println("Url: "+bookL.getUrl());
+            System.out.println("---------------------------------------------------------------------------");
+        }
     }
 }

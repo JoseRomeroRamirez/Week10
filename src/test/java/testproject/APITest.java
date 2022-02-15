@@ -31,7 +31,7 @@ public class APITest{
         fakerestApi.datosBooks();
     }
     @Test
-    public void coverPhotosBooksTest(){
+    public void coverPhotosBooksTest() throws JsonProcessingException {
         fakerestApi fakerestApi = new fakerestApi();
         fakerestApi.coverPhotosBooks();
     }
