@@ -10,8 +10,11 @@ public class CheckOutCompletePage extends BasePageObject{
     }
     By checkOutCompleteTextLocator = By.xpath("//span[@class='title']");
     By headerTextLocator = By.xpath("//h2[@class='complete-header']");
+    String expectedCheckOutComplete = "CHECKOUT: COMPLETE!";
+    String getExpectedCheckOutHeader = "THANK YOU FOR YOUR ORDER";
+    //Verifica comparando los textos esperados con los obtenidos
     public void verifyOrderWasCompleted(){
-        AssertEqual(getText(checkOutCompleteTextLocator),"CHECKOUT: COMPLETE!", "Se muestra mensaje equivocado en el titulo");
-        AssertEqual(getText(headerTextLocator),"THANK YOU FOR YOUR ORDER","Se muestra mensaje equivocado en el encabezado");
+        AssertEqual(getText(checkOutCompleteTextLocator),expectedCheckOutComplete, "Se muestra mensaje equivocado en el titulo");
+        AssertEqual(getText(headerTextLocator),getExpectedCheckOutHeader,"Se muestra mensaje equivocado en el encabezado");
     }
 }

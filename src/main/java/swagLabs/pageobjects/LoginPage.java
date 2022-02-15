@@ -14,6 +14,7 @@ public class LoginPage extends BasePageObject{
     By ErrorBox = By.tagName("h3");
     //Este metodo permite ingresar al sitio brindando usuario y contraseña
     public void Login(String user, String pass){
+        log.info("Ingresando con los siguientes datos: user "+user+" password "+pass);
         type(user,UsernameTextBoxLocator);
         type(pass, PasswordTextBoxLocator);
         click(LoginButtonLocator);

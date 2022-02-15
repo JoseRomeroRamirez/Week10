@@ -33,6 +33,7 @@ public class SwagLabsTest  extends TestUtilities {
         log.info("Login in to the E-commerce with: " +user+" password: "+ pass);
         Login.execute(user, pass);
         Login.AssertEqual(Login.GetUrl(driver), "https://www.saucedemo.com/inventory.html", "No coincide la URL de la pagina principal");
+        log.info("Fin del test");
     }
     @Test(dataProvider = "user-data-fail")
     public void LoginTestFailTest(String user, String pass, String mensaje){
@@ -42,6 +43,7 @@ public class SwagLabsTest  extends TestUtilities {
         Login.execute(user, pass);
         Login.AssertEqual(Login.GetUrl(driver), "https://www.saucedemo.com/", "No coincide la URL del login");
         Login.AssertEqual(GetErrorText.execute(),mensaje, "Mensaje de error Erroneo");
+        log.info("Fin del test");
     }
     @Test(dataProvider = "user-data-success")
     public void RemoveItemsFromCartTest(String user, String pass, String firstName, String lastName, String zipCode){
@@ -51,6 +53,7 @@ public class SwagLabsTest  extends TestUtilities {
         Login.execute(user, pass);
         AddItemsToCart.execute();
         RemoveItemsFromCart.execute();
+        log.info("Fin del test");
     }
     @Test(dataProvider = "user-data-success")
     public void E2ETest(String user, String pass, String firstName, String lastName, String zipCode){
@@ -74,6 +77,7 @@ public class SwagLabsTest  extends TestUtilities {
         base.AssertEqual(GetTotalCheckOut2.execute(), (GetItemTotalCheckOut2.execute() + GetTaxCheckOut2.execute()), "Error en la suma total de tax y productos");
         FinishCheckOut.execute();
         VerifyOrderWasCompleted.execute();
+        log.info("Fin del test");
     }
     @Test(dataProvider = "user-data-success")
     public void VerifyAboutSectionTest(String user, String pass, String firstName, String lastName, String zipCode){
@@ -81,6 +85,7 @@ public class SwagLabsTest  extends TestUtilities {
         GoToAboutSection GoToAbout = new GoToAboutSection(driver, log);
         Login.execute(user, pass);
         GoToAbout.execute();
+        log.info("Fin del test");
     }
     @Test(dataProvider = "user-data-success")
     public void twitterTest(String user, String pass, String firstName, String lastName, String zipCode){
@@ -88,6 +93,7 @@ public class SwagLabsTest  extends TestUtilities {
         GoToSocialMediaTwitter GoToSocialMediaTwitter = new GoToSocialMediaTwitter(driver, log);
         Login.execute(user, pass);
         GoToSocialMediaTwitter.execute();
+        log.info("Fin del test");
     }
     @Test(dataProvider = "user-data-success")
     public void FacebookTest(String user, String pass, String firstName, String lastName, String zipCode){
@@ -95,6 +101,7 @@ public class SwagLabsTest  extends TestUtilities {
         GoToSocialMediaFacebook GoToSocialMediaFacebook = new GoToSocialMediaFacebook(driver, log);
         Login.execute(user, pass);
         GoToSocialMediaFacebook.execute();
+        log.info("Fin del test");
     }
     @Test(dataProvider = "user-data-success")
     public void linkedinTest(String user, String pass, String firstName, String lastName, String zipCode){
@@ -102,6 +109,7 @@ public class SwagLabsTest  extends TestUtilities {
         GoToSocialMediaLinkedin GoToSocialMediaLinkedin = new GoToSocialMediaLinkedin(driver, log);
         Login.execute(user, pass);
         GoToSocialMediaLinkedin.execute();
+        log.info("Fin del test");
     }
 
 }

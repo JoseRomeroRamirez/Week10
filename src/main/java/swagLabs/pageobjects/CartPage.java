@@ -15,9 +15,11 @@ public class CartPage extends BasePageObject{
     By cartCounterLocator = By.xpath("//span[contains(@class, 'shopping_cart_badge')]");
     By pricesTextLocator = By.xpath("//div[@class='inventory_item_price']");
     String url = "https://www.saucedemo.com/cart.html";
+    //Remueve los elementos que se encuentran actualmente en el carrito
     public void removeItemsToCart(){
         openUrl(url);
         List<WebElement> removeButton = findElements(removeButtonLocator);
+        log.info("Removiendo "+removeButton.size()+" objetos");
         for (int j=(removeButton.size()-1); j >= 0 ; j--) {
             removeButton.get(j).click();
             if (j==0){
@@ -26,15 +28,18 @@ public class CartPage extends BasePageObject{
             log.info("Item removed");
         }
     }
+    //Retorna la suma de todos los objetos que se encuentran actualmente en el carrito
     public double sumAllPrices(){
         double sum = 0;
         String str;
         openUrl(url);
         List<WebElement> prices = findElements(pricesTextLocator);
+        log.info("Sumando el precio de "+prices.size()+" objetos");
         for (WebElement price:prices) {
             str = price.getText().replace("$", "");
             sum = sum + Double.parseDouble(str);
         }
+        log.info("La suma total es de: "+sum);
         return sum;
     }
 }
