@@ -2,7 +2,7 @@ package testproject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import week7.pageobjects.fakerestApi;
+import fakeRestApi.pageobjects.fakerestApi;
 
 
 public class APITest{

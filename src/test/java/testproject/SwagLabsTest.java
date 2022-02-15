@@ -2,9 +2,9 @@ package testproject;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import week6.actions.*;
-import week6.base.TestUtilities;
-import week6.pageobjects.BasePageObject;
+import swagLabs.actions.*;
+import swagLabs.base.TestUtilities;
+import swagLabs.pageobjects.BasePageObject;
 
 import java.text.DecimalFormat;
 
