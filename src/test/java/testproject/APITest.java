@@ -20,20 +20,24 @@ public class APITest{
     public void almacenarIdsTest(){
         fakerestApi fakerestApi = new fakerestApi();
         fakerestApi.almacenarIds();
+        System.out.println("Fin del test");
     }
     @Test(dataProvider = "data")
     public void postMultipleActivitiesTest(int id, String title, String dueDate){
         fakerestApi fakerestApi = new fakerestApi();
         fakerestApi.postMultipleActivities(id, title, dueDate);
+        System.out.println("Fin del test");
     }
     @Test
     public void schemaBooksTest(){
         fakerestApi fakerestApi = new fakerestApi();
         fakerestApi.datosBooks();
+        System.out.println("Fin del test");
     }
     @Test
     public void coverPhotosBooksTest() throws JsonProcessingException {
         fakerestApi fakerestApi = new fakerestApi();
         fakerestApi.coverPhotosBooks();
+        System.out.println("Fin del test");
     }
 }
